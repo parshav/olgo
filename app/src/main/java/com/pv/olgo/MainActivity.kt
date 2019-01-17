@@ -1,12 +1,8 @@
 package com.pv.olgo
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.annotation.SuppressLint
 
-class MainActivity : AppCompatActivity() {
+@SuppressLint("Registered")
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
 }
