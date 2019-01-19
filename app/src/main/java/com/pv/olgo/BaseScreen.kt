@@ -10,9 +10,10 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseScreen : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View = inflater.inflate(layout(), container, false)
 
     @LayoutRes
     abstract fun layout(): Int

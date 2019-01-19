@@ -1,7 +1,6 @@
 package com.pv.olgo
 
 import android.os.Bundle
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
@@ -14,10 +13,10 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val container = findViewById<ViewGroup>(R.id.controller_container)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_container, homeScreen)
+            .commitNow()
     }
-
-//    abstract fun screen(): Screen
 }
 
 typealias Screen = Fragment
