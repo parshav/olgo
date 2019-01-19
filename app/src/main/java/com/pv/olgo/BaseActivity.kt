@@ -3,14 +3,10 @@ package com.pv.olgo
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.bluelinelabs.conductor.Conductor
-import com.bluelinelabs.conductor.Controller
-import com.bluelinelabs.conductor.Router
-import com.bluelinelabs.conductor.RouterTransaction
+import androidx.fragment.app.Fragment
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    private lateinit var router: Router
 
     private val homeScreen by lazy { HomeScreen() }
 
@@ -19,16 +15,12 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val container = findViewById<ViewGroup>(R.id.controller_container)
-
-        router = Conductor.attachRouter(this, container, savedInstanceState)
-
-        router.setRoot(RouterTransaction.with(homeScreen))
     }
 
 //    abstract fun screen(): Screen
 }
 
-typealias Screen = Controller
+typealias Screen = Fragment
 
 fun <T> T?.onNull(block: () -> (Unit)) {
     if (this == null)

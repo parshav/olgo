@@ -1,16 +1,17 @@
 package com.pv.olgo
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import com.bluelinelabs.conductor.Controller
+import androidx.fragment.app.Fragment
 
 
-abstract class BaseScreen : Controller() {
+abstract class BaseScreen : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup): View {
-        return inflater.inflate(layout(), container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     @LayoutRes
