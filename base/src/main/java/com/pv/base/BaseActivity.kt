@@ -1,4 +1,4 @@
-package com.pv.olgo
+package com.pv.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 abstract class BaseActivity : AppCompatActivity() {
 
 
-    private val homeScreen by lazy { HomeScreen() }
 //    private val homeScreen by lazy { Flutter.createFragment("route1") }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,10 +16,12 @@ abstract class BaseActivity : AppCompatActivity() {
         savedInstanceState.onNull {
             supportFragmentManager
                     .beginTransaction()
-                    .replace(R.id.fl_container, homeScreen)
+                    .replace(R.id.fl_container, screen())
                     .commitNow()
         }
     }
+
+    abstract fun screen(): Screen
 }
 
 typealias Screen = Fragment

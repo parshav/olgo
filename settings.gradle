@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':base'
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         '/Users/pchauhan/Documents/PRS/olgo/instance_flutter/.android/include_flutter.groovy'

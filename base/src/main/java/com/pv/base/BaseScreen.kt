@@ -1,4 +1,4 @@
-package com.pv.olgo
+package com.pv.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
 
 
 abstract class BaseScreen : Fragment() {
