@@ -6,9 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 abstract class BaseScreen : Fragment() {
+
+    private val jobs: MutableList<Job> = mutableListOf()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -22,15 +27,15 @@ abstract class BaseScreen : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        screenOnStart()
+        runBlocking {
+            screenOnStart()
+        }
     }
 
     override fun onStop() {
         super.onStop()
+        jobs.forEach { it.cancel() }
         screenOnStop()
-    }
-
-    suspend fun hello() {
     }
 
     @LayoutRes
