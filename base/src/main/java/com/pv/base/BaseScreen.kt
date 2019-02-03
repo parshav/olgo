@@ -6,9 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import io.reactivex.disposables.Disposable
 
 
 abstract class BaseScreen : Fragment() {
+
+    private val disposable: MutableList<Disposable> = mutableListOf()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,19 +27,20 @@ abstract class BaseScreen : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        screenOnStart()
+        disposable.addAll(screenOnStart())
     }
 
     override fun onStop() {
         super.onStop()
         screenOnStop()
+        disposable.forEach { it.dispose() }
     }
 
     @LayoutRes
     abstract fun layout(): Int
 
     abstract fun onViewLoaded(view: View)
-    abstract fun screenOnStart()
+    abstract fun screenOnStart(): Array<Disposable>
 
     open fun screenOnStop() {
 

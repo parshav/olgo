@@ -8,8 +8,11 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        startKoin(this, listOf(
-                bottomNavHandlerModule
-        ))
+        startKoin(
+            this, listOf(
+                bottomNavHandlerModule,
+                activityHelperModule
+            )
+        )
     }
 }

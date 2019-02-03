@@ -19,9 +19,9 @@ class HomeScreen : BaseScreen() {
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavHandler)
     }
 
-    override fun screenOnStart() {
+    override fun screenOnStart() = arrayOf(
+        bottomNavHandler.bottomSelectedObservable().subscribe {
 
-    }
+        }
+    )
 }
-
-typealias tester = () -> Int
