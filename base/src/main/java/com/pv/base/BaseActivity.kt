@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
         savedInstanceState.onNull {
             supportFragmentManager
                 .beginTransaction()
-                .replace(ui.container ?: R.id.fl_container, ui.screen ?: Screen())
+                .replace(ui.container ?: R.id.fl_container, ui.screen ?: Fragment())
                 .commitNow()
         }
     }
@@ -33,7 +33,7 @@ class UI {
 
     var container: Int? = null
     var layout: Int? = null
-    var screen: Screen? = null
+    var screen: Fragment? = null
 }
 
 
@@ -42,8 +42,6 @@ fun ui(block: UI.() -> Unit): UI {
     u.block()
     return u
 }
-
-typealias Screen = Fragment
 
 fun <T> T?.onNull(block: () -> (Unit)) {
     if (this == null)
