@@ -15,9 +15,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
         savedInstanceState.onNull {
             supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.fl_container, screen())
-                    .commitNow()
+                .beginTransaction()
+                .replace(R.id.fl_container, screen())
+                .commitNow()
         }
     }
 

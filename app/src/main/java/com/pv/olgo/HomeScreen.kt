@@ -20,5 +20,8 @@ class HomeScreen : BaseScreen() {
     }
 
     override fun screenOnStart() {
+
     }
 }
+
+typealias tester = () -> Int

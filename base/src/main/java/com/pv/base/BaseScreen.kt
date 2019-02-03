@@ -6,18 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 abstract class BaseScreen : Fragment() {
 
-    private val jobs: MutableList<Job> = mutableListOf()
-
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View = inflater.inflate(layout(), container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,14 +22,11 @@ abstract class BaseScreen : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        runBlocking {
-            screenOnStart()
-        }
+        screenOnStart()
     }
 
     override fun onStop() {
         super.onStop()
-        jobs.forEach { it.cancel() }
         screenOnStop()
     }
 

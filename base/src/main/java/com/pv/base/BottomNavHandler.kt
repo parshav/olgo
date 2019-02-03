@@ -11,8 +11,10 @@ class BottomNavHandler : BottomNavigationView.OnNavigationItemSelectedListener {
         when (item.itemId) {
 
             R.id.action_announcements -> {
+
             }
             R.id.action_polls -> {
+
             }
         }
         return true
