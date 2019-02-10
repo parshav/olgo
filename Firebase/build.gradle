@@ -30,6 +30,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.firebase:firebase-database:16.0.6'
 
+    implementation "io.arrow-kt:arrow-core:0.8.2"
+
     implementation 'androidx.annotation:annotation:1.0.1'
 }
 
