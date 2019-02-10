@@ -17,7 +17,7 @@ interface RequestAnnouncements {
 
 typealias AnnouncementsResponse = Either<Error, Announcements>
 
-class RequestAnnouncementsImpl(
+internal class RequestAnnouncementsImpl(
     private val firebaseHolder: FirebaseHolder
 ) : RequestAnnouncements {
 

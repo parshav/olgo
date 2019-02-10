@@ -13,7 +13,7 @@ class AnnouncementsScreen : BaseScreen() {
 
     private val announcementsRequester: RequestAnnouncements by inject()
 
-    override fun ui(): Screen = screen {
+    override fun ui() = screen {
         layout = R.layout.screen_announcements
     }
 
