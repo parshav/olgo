@@ -5,13 +5,13 @@ import com.pv.base.BaseScreen
 import com.pv.base.Screen
 import com.pv.base.log
 import com.pv.base.screen
-import com.pv.firebase.FirebaseHolder
+import com.pv.firebase.RequestAnnouncements
 import io.reactivex.disposables.Disposable
 import org.koin.android.ext.android.inject
 
 class AnnouncementsScreen : BaseScreen() {
 
-    private val firebase: FirebaseHolder by inject()
+    private val announcementsRequester: RequestAnnouncements by inject()
 
     override fun ui(): Screen = screen {
         layout = R.layout.screen_announcements
@@ -21,7 +21,7 @@ class AnnouncementsScreen : BaseScreen() {
     }
 
     override fun bindings(): Array<Disposable> = arrayOf(
-        firebase.getAnnouncements().subscribe {
+        announcementsRequester.getAnnouncements().subscribe {
             it.fold(
                 {
                     log("Error'd")
