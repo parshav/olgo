@@ -22,7 +22,7 @@ class HomeScreen : BaseScreen() {
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavHandler)
     }
 
-    override fun screenOnStart() = arrayOf(
+    override fun bindings() = arrayOf(
         bottomNavHandler.bottomSelectedObservable().subscribe {
 
         }

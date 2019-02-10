@@ -25,7 +25,7 @@ abstract class BaseScreen : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        disposable.addAll(screenOnStart())
+        disposable.addAll(bindings())
     }
 
     override fun onStop() {
@@ -37,7 +37,7 @@ abstract class BaseScreen : Fragment() {
     abstract fun ui(): Screen
 
     abstract fun onViewLoaded(view: View)
-    abstract fun screenOnStart(): Array<Disposable>
+    abstract fun bindings(): Array<Disposable>
 
     open fun screenOnStop() {
 

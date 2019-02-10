@@ -11,12 +11,14 @@ abstract class BaseActivity : AppCompatActivity() {
     //    private val homeScreen by lazy { Flutter.createFragment("route1") }
     private val activityHelper: ActivityHelper by inject()
     private val ui by lazy { uiBuilder() }
+    private val uii by inject<UI>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(ui.layout ?: R.layout.activity_main)
 
         activityHelper.setLifecycle(lifecycle)
+        activityHelper.setFragmentManager(supportFragmentManager)
 
         savedInstanceState.onNull {
             supportFragmentManager
@@ -47,3 +49,8 @@ fun <T> T?.onNull(block: () -> (Unit)) {
     if (this == null)
         block.invoke()
 }
+
+/*
+val uiModule = module {
+    scope("activity") { UI() }
+}*/
