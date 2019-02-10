@@ -3,6 +3,7 @@ package com.pv.olgo
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pv.base.*
+import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
 
 class HomeScreen : BaseScreen() {
@@ -19,6 +20,8 @@ class HomeScreen : BaseScreen() {
     override fun onViewLoaded(view: View) {
         bottomNavigationView = view.findViewById(R.id.bottom_nav)
         bottomNavigationView.setOnNavigationItemSelectedListener(bottomNavHandler)
+
+        bottomNavigationView.selectedItemId = getKoin().getProperty("selected_id")
     }
 
     override fun bindings() = arrayOf(
