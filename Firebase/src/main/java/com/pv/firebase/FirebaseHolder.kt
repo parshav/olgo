@@ -8,7 +8,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.jakewharton.rxrelay2.BehaviorRelay
-import com.pv.base.models.Announcements
+import com.pv.firebase.models.Announcements
 import io.reactivex.Observable
 import org.koin.dsl.module.module
 
@@ -19,7 +19,7 @@ interface FirebaseHolder {
 
 class FirebaseHolderImpl : FirebaseHolder {
 
-    private val databaseRef by lazy { FirebaseDatabase.getInstance().reference.child("announcements") }
+    private val databaseRef by lazy { FirebaseDatabase.getInstance().reference.child("data") }
 
     override fun getAnnouncements(): Observable<AnnouncementsResponse> {
 
