@@ -15,6 +15,10 @@ class GlobalNavigator(
 ) : NavigatorTemplate {
 
     override fun navigateTo(screen: Fragment) {
+        activityHelper.getFragmentManager()
+            .beginTransaction()
+            .replace(R.id.home_container, screen)
+            .commit()
     }
 }
 

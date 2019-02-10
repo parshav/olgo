@@ -11,7 +11,8 @@ class MyApplication : Application() {
         startKoin(
             this, listOf(
                 bottomNavHandlerModule,
-                activityHelperModule
+                activityHelperModule,
+                navigatorModule
             )
         )
     }

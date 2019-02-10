@@ -12,11 +12,8 @@ class AnnouncementsScreen : BaseScreen() {
     }
 
     override fun onViewLoaded(view: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun bindings(): Array<Disposable> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun bindings(): Array<Disposable> = arrayOf()
 
 }

@@ -2,9 +2,7 @@ package com.pv.olgo
 
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.pv.base.BaseScreen
-import com.pv.base.BottomNavHandler
-import com.pv.base.screen
+import com.pv.base.*
 import org.koin.android.ext.android.inject
 
 class HomeScreen : BaseScreen() {
@@ -14,6 +12,7 @@ class HomeScreen : BaseScreen() {
     }
 
     private val bottomNavHandler: BottomNavHandler by inject()
+    private val navigator: NavigatorTemplate by inject()
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -24,7 +23,16 @@ class HomeScreen : BaseScreen() {
 
     override fun bindings() = arrayOf(
         bottomNavHandler.bottomSelectedObservable().subscribe {
-
+            when (it) {
+                BottomNavFeature.Announcements -> {
+                    log("To Announcements")
+                    navigator.navigateTo(AnnouncementsScreen())
+                }
+                BottomNavFeature.Polls -> {
+                    log("To Polls")
+                    navigator.navigateTo(PollsScreen())
+                }
+            }
         }
     )
 }
