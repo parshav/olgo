@@ -31,7 +31,7 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        setProperty("selected_id", R.id.action_polls)
+        setProperty("selected_id", R.id.action_announcements)
         super.onCreate(savedInstanceState)
     }
 }
