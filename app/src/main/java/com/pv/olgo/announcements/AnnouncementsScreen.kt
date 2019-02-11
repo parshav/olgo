@@ -14,8 +14,7 @@ import org.koin.android.ext.android.inject
 class AnnouncementsScreen : BaseScreen() {
 
     private val announcementsRequester: RequestAnnouncements by inject()
-
-    private val announcementsAdapter = AnnouncementsAdapter()
+    private val announcementsAdapter: AnnouncementsAdapter by inject()
 
     private lateinit var recyclerView: RecyclerView
 

@@ -10,10 +10,11 @@ import com.pv.base.NavigatorTemplate
 import com.pv.base.log
 import com.pv.firebase.models.Announcement
 import com.pv.olgo.R
+import org.koin.dsl.module.module
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.AnnouncementsViewHolder>(), KoinComponent {
+internal class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.AnnouncementsViewHolder>(), KoinComponent {
 
     private var data: Array<Announcement>? = null
     private val navigatorTemplate: NavigatorTemplate by inject()
@@ -48,4 +49,8 @@ class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.Announcem
             }
         }
     }
+}
+
+val announcementsAdapterModule = module {
+    factory { AnnouncementsAdapter() }
 }
