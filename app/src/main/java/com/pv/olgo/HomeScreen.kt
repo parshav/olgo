@@ -3,6 +3,7 @@ package com.pv.olgo
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pv.base.*
+import com.pv.olgo.announcements.AnnouncementsScreen
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
 
@@ -28,7 +29,7 @@ class HomeScreen : BaseScreen() {
         bottomNavHandler.bottomSelectedObservable().subscribe {
             when (it) {
                 BottomNavFeature.Announcements -> {
-                    log("To Announcements")
+                    log("To AnnouncementsWrapper")
                     navigator.navigateTo(AnnouncementsScreen())
                 }
                 BottomNavFeature.Polls -> {
