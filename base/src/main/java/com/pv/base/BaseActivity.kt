@@ -10,6 +10,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     //    private val homeScreen by lazy { Flutter.createFragment("route1") }
     private val activityHelper: ActivityHelper by inject()
+    private val navigatorTemplate: NavigatorTemplate by inject()
+
     private val ui by lazy { uiBuilder() }
     private val uii by inject<UI>()
 
@@ -29,6 +31,12 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     abstract fun uiBuilder(): UI
+
+    override fun onBackPressed() {
+        if (!navigatorTemplate.pop()) {
+            super.onBackPressed()
+        }
+    }
 }
 
 class UI {

@@ -6,15 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.pv.base.NavigationType
 import com.pv.base.NavigatorTemplate
 import com.pv.base.log
 import com.pv.firebase.models.Announcement
+import com.pv.olgo.DetailScreen
 import com.pv.olgo.R
 import org.koin.dsl.module.module
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 
-internal class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.AnnouncementsViewHolder>(), KoinComponent {
+internal class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.AnnouncementsViewHolder>(),
+    KoinComponent {
 
     private var data: Array<Announcement>? = null
     private val navigatorTemplate: NavigatorTemplate by inject()
@@ -46,6 +49,7 @@ internal class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.
             desc.text = data?.get(position)?.desc
             card.setOnClickListener {
                 log("Logged a click for $position")
+                navigatorTemplate.navigateTo(DetailScreen(), type = NavigationType.Modal)
             }
         }
     }

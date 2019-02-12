@@ -30,11 +30,11 @@ class HomeScreen : BaseScreen() {
             when (it) {
                 BottomNavFeature.Announcements -> {
                     log("To AnnouncementsWrapper")
-                    navigator.navigateTo(AnnouncementsScreen())
+                    navigator.bottomTabNavigate(AnnouncementsScreen())
                 }
                 BottomNavFeature.Polls -> {
                     log("To Polls")
-                    navigator.navigateTo(PollsScreen())
+                    navigator.bottomTabNavigate(PollsScreen())
                 }
             }
         }
