@@ -4,6 +4,7 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pv.base.*
 import com.pv.olgo.announcements.AnnouncementsScreen
+import io.flutter.facade.Flutter
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.android.inject
 
@@ -29,12 +30,13 @@ class HomeScreen : BaseScreen() {
         bottomNavHandler.bottomSelectedObservable().subscribe {
             when (it) {
                 BottomNavFeature.Announcements -> {
-                    log("To AnnouncementsWrapper")
                     navigator.bottomTabNavigate(AnnouncementsScreen())
                 }
                 BottomNavFeature.Polls -> {
-                    log("To Polls")
                     navigator.bottomTabNavigate(PollsScreen())
+                }
+                BottomNavFeature.Flutter -> {
+                    navigator.bottomTabNavigate(Flutter.createFragment("route1"))
                 }
             }
         }

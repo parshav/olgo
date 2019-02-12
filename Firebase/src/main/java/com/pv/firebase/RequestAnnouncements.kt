@@ -56,7 +56,6 @@ internal class RequestAnnouncementsImpl(
 }
 
 val announcementsRequestModule = module {
-    //    factory<RequestAnnouncements> { RequestAnnouncementsImpl(get()) }
     scope("main_activity_scope") {
         RequestAnnouncementsImpl(get()) as RequestAnnouncements
     }

@@ -9,6 +9,7 @@ import org.koin.dsl.module.module
 sealed class BottomNavFeature {
     object Announcements : BottomNavFeature()
     object Polls : BottomNavFeature()
+    object Flutter : BottomNavFeature()
 }
 
 class BottomNavHandler : BottomNavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +27,9 @@ class BottomNavHandler : BottomNavigationView.OnNavigationItemSelectedListener {
             }
             R.id.action_polls -> {
                 bottomSelectedRelay.accept(BottomNavFeature.Polls)
+            }
+            R.id.action_flutter -> {
+                bottomSelectedRelay.accept(BottomNavFeature.Flutter)
             }
         }
         return true

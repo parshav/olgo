@@ -3,13 +3,19 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_announcements"
-        android:enabled="true"
-        android:title="Announcements"
-        app:showAsAction="ifRoom"/>
+            android:id="@+id/action_announcements"
+            android:enabled="true"
+            android:title="Announcements"
+            app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/action_polls"
-        android:enabled="true"
-        android:title="Polls"
-        app:showAsAction="ifRoom"/>
+            android:id="@+id/action_polls"
+            android:enabled="true"
+            android:title="Polls"
+            app:showAsAction="ifRoom"/>
+
+    <item
+            android:id="@+id/action_flutter"
+            android:enabled="true"
+            android:title="Flutter"
+            app:showAsAction="always"/>
 </menu>

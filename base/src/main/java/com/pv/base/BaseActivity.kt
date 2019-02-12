@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import org.koin.android.ext.android.inject
 
+
 abstract class BaseActivity : AppCompatActivity() {
 
 
-    //    private val homeScreen by lazy { Flutter.createFragment("route1") }
     private val activityHelper: ActivityHelper by inject()
     private val navigatorTemplate: NavigatorTemplate by inject()
 
