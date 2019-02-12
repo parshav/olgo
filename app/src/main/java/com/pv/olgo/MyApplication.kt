@@ -21,7 +21,8 @@ class MyApplication : Application() {
                 navigatorModule,
                 firebaseModule,
                 announcementsRequestModule,
-                announcementsAdapterModule
+                announcementsAdapterModule,
+                detailScreenModule
             )
         )
     }

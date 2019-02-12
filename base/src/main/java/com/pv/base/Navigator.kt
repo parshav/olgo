@@ -12,7 +12,7 @@ interface NavigatorTemplate {
     fun pop(): Boolean
 }
 
-class GlobalNavigator(
+internal class GlobalNavigator(
     override var activityHelper: ActivityHelper
 ) : NavigatorTemplate {
 

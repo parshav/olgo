@@ -8,7 +8,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.pv.base.NavigationType
 import com.pv.base.NavigatorTemplate
-import com.pv.base.log
 import com.pv.firebase.models.Announcement
 import com.pv.olgo.DetailScreen
 import com.pv.olgo.R
@@ -45,11 +44,13 @@ internal class AnnouncementsAdapter : RecyclerView.Adapter<AnnouncementsAdapter.
         private val card by lazy { itemView.findViewById<CardView>(R.id.cv_main) }
 
         fun bind(position: Int) {
-            title.text = data?.get(position)?.title
-            desc.text = data?.get(position)?.desc
+            val titleData = data?.get(position)?.title
+            val descData = data?.get(position)?.desc
+
+            title.text = titleData
+            desc.text = descData
             card.setOnClickListener {
-                log("Logged a click for $position")
-                navigatorTemplate.navigateTo(DetailScreen(), type = NavigationType.Modal)
+                navigatorTemplate.navigateTo(DetailScreen.new(titleData, descData), type = NavigationType.Modal)
             }
         }
     }
