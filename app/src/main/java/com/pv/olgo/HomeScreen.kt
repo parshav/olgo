@@ -36,7 +36,7 @@ class HomeScreen : BaseScreen() {
                     navigator.bottomTabNavigate(PollsScreen())
                 }
                 BottomNavFeature.Flutter -> {
-                    navigator.bottomTabNavigate(Flutter.createFragment("route1"))
+                    navigator.bottomTabNavigate(Flutter.createFragment("route1"), slowAnimate = true)
                 }
             }
         }
