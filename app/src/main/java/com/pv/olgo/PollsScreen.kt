@@ -3,10 +3,8 @@ package com.pv.olgo
 import android.view.View
 import android.widget.TextView
 import com.pv.base.BaseScreen
-import com.pv.base.ResourceHelper
 import com.pv.base.screen
 import io.reactivex.disposables.Disposable
-import org.koin.android.ext.android.get
 
 class PollsScreen : BaseScreen() {
 

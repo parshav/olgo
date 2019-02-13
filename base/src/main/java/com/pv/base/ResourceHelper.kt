@@ -18,5 +18,5 @@ internal class ResourceHelperImpl(
 }
 
 val resourceHelperModule = module {
-    factory { ResourceHelperImpl(androidContext()) }
+    factory<ResourceHelper> { ResourceHelperImpl(androidContext()) }
 }
